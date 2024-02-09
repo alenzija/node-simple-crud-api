@@ -1,0 +1,23 @@
+{
+  "name": "simple-crud-api",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alenzija/node-simple-crud-api.git"
+  },
+  "author": "alenzija@gamil.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alenzija/node-simple-crud-api/issues"
+  },
+  "homepage": "https://github.com/alenzija/node-simple-crud-api#readme"
+}
