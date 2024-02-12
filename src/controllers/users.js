@@ -30,19 +30,18 @@ export const createUser = async (req, res) => {
   });
 
   req.on('end', async () => {
-      const userData = requestBody;
-      const { name, age, hobbies } = JSON.parse(userData);
-      if (!name || !age || !hobbies) {
-        res.writeHead(404, { 'Content-Type': 'application/json' });
-        res.end('Body doesn\'t contain required  fields');
-      } else if (typeof name !== 'string' || typeof age !== 'number' || !Array.isArray(hobbies) || hobbies.some((item) => typeof item !== 'string')) {
-        res.writeHead(404, { 'Content-Type': 'application/json' });
-        res.end('Wrong type');
-      } else {
-        const users = await addUsers([{ name, age, hobbies }]);
-        res.writeHead(201, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify(users[users.length - 1]));
-      }
-
+    const userData = requestBody;
+    const { name, age, hobbies } = JSON.parse(userData);
+    if (!name || !age || !hobbies) {
+      res.writeHead(404, { 'Content-Type': 'application/json' });
+      res.end('Body doesn\'t contain required  fields');
+    } else if (typeof name !== 'string' || typeof age !== 'number' || !Array.isArray(hobbies) || hobbies.some((item) => typeof item !== 'string')) {
+      res.writeHead(404, { 'Content-Type': 'application/json' });
+      res.end('Wrong type');
+    } else {
+      const users = await addUsers([{ name, age, hobbies }]);
+      res.writeHead(201, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify(users[users.length - 1]));
+    }
   });
 }

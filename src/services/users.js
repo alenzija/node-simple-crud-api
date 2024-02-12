@@ -31,3 +31,10 @@ export const addUsers = async (users) => {
   return result;
 }
 
+export const updateUsersById = async (id, userData) => {
+  const existedUsers = await readUsers();
+  const newUsers = existedUsers.map((user) => user.id === id ? { ...user, ...userData } : user);
+  await writeUsers(newUsers);
+  return newUsers.find((user) => user.id === id);
+}
+
