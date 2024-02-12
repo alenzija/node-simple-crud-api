@@ -5,13 +5,12 @@
   "engines": {
     "node": ">=20.0.0"
   },
-  "main": "index.ts",
   "scripts": {
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint \"src/**/*.ts\" --fix",
     "build": "npx tsc",
-    "start": "tsc --esm dist/index.js",
-    "dev": "nodemon --esm src/index.ts"
+    "start:prod": "npm run build & node dist/index.js",
+    "start:dev": "nodemon --esm src/index.ts"
   },
   "repository": {
     "type": "git",

@@ -15,8 +15,8 @@ const server = http.createServer((req, res) => {
   } else if (userIdMatch.test(req.url)) {
     resolveUserId(req, res);
   } else {
-    res.writeHead(405, { 'Content-Type': 'text/plain' });
-    res.end('Method Not Allowed');
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('Endpoint Not Allowed');
   }
 });
 
