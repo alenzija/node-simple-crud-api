@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/alenzija/node-simple-crud-api/issues"
   },
-  "homepage": "https://github.com/alenzija/node-simple-crud-api#readme"
+  "homepage": "https://github.com/alenzija/node-simple-crud-api#readme",
+  "dependencies": {
+    "uuid": "^9.0.1"
+  }
 }

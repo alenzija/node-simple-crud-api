@@ -1,5 +1,6 @@
 import { writeFile, readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { v4 as uuidv4 } from 'uuid';
 
 const __dirname = path.resolve();
 
@@ -10,14 +11,14 @@ export const readUsers = async () => {
   return JSON.parse(data);
 }
 
-export const writeUsers = async users => {
+export const writeUsers = async (users) => {
   await writeFile(USERS_PATH, JSON.stringify(users));
 }
 
-export const addUsers = async users => {
+export const addUsers = async (users) => {
   const existedUsers = await readUsers();
-  const newUsers = users.map((user, index) => ({
-    id: existedUsers.length + 1 + index,
+  const newUsers = users.map((user) => ({
+    id:uuidv4(),
     ...user
   }));
 
